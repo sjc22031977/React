@@ -5,44 +5,41 @@ import CuerpoPosteo from './CuerpoPosteo'; // 3. Importamos el componente Cuerpo
 import PieDePosteo from './PieDePosteo'; // 5. Importamos el componente PieDePosteo
 import Asistente from "./Asistente"; // 6. Importamos el componente Asistente
     
-import './App.css'; 
- 
-function App() { 
-  return ( 
-    <div> 
-      {/* 2. Lo usamos como si fuera una etiqueta HTML */} 
-      const asistentes = [ 
-        { nombre: 'Juan Pérez', tarea: 'Frontend Developer', emoji: '󰞵' }, 
-        { nombre: 'Ana Gómez', tarea: 'Diseñadora UX/UI', emoji: '🎨' }, 
-        { nombre: 'Carlos Ruiz', tarea: 'Backend Developer', emoji: '󰠁' }];
-      <Bienvenida /> 
-      <Encabezado /> 
-      <CuerpoPosteo /> 
-      <p>Este es mi primer componente montado en App.jsx</p> 
-      <PieDePosteo /> 
-    </div> 
-  ); 
-} 
- 
+import "./App.css";
+import Layout from "./Layout";
+import TarjetaProducto from "./TarjetaProducto";
+
 export default function App() {
-  const asistentes = [
-    { nombre: "Juan Pérez", tarea: "Frontend Developer", emoji: "💻" },
-    { nombre: "Ana Gómez", tarea: "Diseñadora UX/UI", emoji: "🎨" },
-    { nombre: "Carlos Ruiz", tarea: "Backend Developer", emoji: "🛠️" }
+  const productos = [
+    {
+      nombre: "Auriculares Gamer RGB",
+      precio: 24999,
+      imagen: "https://via.placeholder.com/220"
+    },
+    {
+      nombre: "Mouse Inalámbrico Pro",
+      precio: 18999,
+      imagen: "https://via.placeholder.com/220"
+    },
+    {
+      nombre: "Teclado Mecánico Azul",
+      precio: 34999,
+      imagen: "https://via.placeholder.com/220"
+    }
   ];
 
   return (
-    <div>
-      <h1>Lista de Asistentes</h1>
-
-      {asistentes.map((persona, index) => (
-        <Asistente
-          key={index}
-          nombre={persona.nombre}
-          tarea={persona.tarea}
-          emoji={persona.emoji}
-        />
-      ))}
-    </div>
+    <Layout>
+      <div className="catalogo">
+        {productos.map((p, index) => (
+          <TarjetaProducto
+            key={index}
+            nombre={p.nombre}
+            precio={p.precio}
+            imagen={p.imagen}
+          />
+        ))}
+      </div>
+    </Layout>
   );
 }

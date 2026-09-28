@@ -1,0 +1,43 @@
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.imagen {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.nombre {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.precio {
+  font-size: 1rem;
+  color: #FF6F61;
+  font-weight: bold;
+}
+
+.boton {
+  background: #FF6F61;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.boton:hover {
+  background: #e85b50;
+}
