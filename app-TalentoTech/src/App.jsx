@@ -1,6 +1,8 @@
 // En /src/App.jsx 
 import { useEffect, useState } from "react";
 import "./App.css";
+import Layout from "./Layout";
+import { Outlet } from "react-router-dom";
 
 export default function App() {
   // -----------------------------
@@ -48,7 +50,8 @@ export default function App() {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <Layout>
+      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* ----------------------------- */}
       {/* HEADER */}
       {/* ----------------------------- */}
@@ -178,6 +181,8 @@ export default function App() {
       >
         © 2026 Mi E‑commerce + TalentoLab
       </footer>
-    </div>
+      </div>
+      <Outlet />
+    </Layout>
   );
 }
