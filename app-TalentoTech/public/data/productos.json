@@ -1,0 +1,24 @@
+// src/data/productos.json
+[
+  {
+    "id": 1,
+    "nombre": "Auriculares Gamer RGB",
+    "precio": 24999,
+    "descripcion": "Sonido envolvente y luces RGB.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 2,
+    "nombre": "Mouse Inalámbrico Pro",
+    "precio": 18999,
+    "descripcion": "Alta precisión y batería duradera.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 3,
+    "nombre": "Teclado Mecánico Azul",
+    "precio": 34999,
+    "descripcion": "Switches azules y retroiluminación.",
+    "imagen": "https://via.placeholder.com/220"
+  }
+]
