@@ -1,6 +1,7 @@
 // src/components/Layout.jsx
 import Header from "./Header";
 import Footer from "./Footer";
+import "../styles/layout.css";
 
 export default function Layout({ children }) {
   return (

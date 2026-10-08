@@ -1,0 +1,13 @@
+.cart-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.cart-total {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}

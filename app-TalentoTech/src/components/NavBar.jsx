@@ -1,6 +1,7 @@
 // src/components/NavBar.jsx
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
+import "../styles/navbar.css";
 
 export default function NavBar() {
   return (

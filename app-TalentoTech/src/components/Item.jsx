@@ -1,4 +1,6 @@
 // src/components/Item.jsx
+import "../styles/item.css"
+
 export default function Item({ producto, onClick }) {
   return (
     <div

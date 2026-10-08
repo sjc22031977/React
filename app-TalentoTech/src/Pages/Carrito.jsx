@@ -1,5 +1,6 @@
 // src/pages/Carrito.jsx
 import { useCart } from "../context/CartContext";
+import "../styles/carrito.css";
 
 export default function Carrito() {
   const { cart } = useCart();

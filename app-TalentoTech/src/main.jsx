@@ -8,6 +8,7 @@ import Productos from "./pages/Productos";
 import DetalleProducto from "./pages/DetalleProducto";
 import Carrito from "./pages/Carrito";
 import { CartProvider } from "./context/CartContext";
+import "./styles/global.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CartProvider>

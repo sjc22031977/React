@@ -1,24 +1,72 @@
-// src/data/productos.json
 [
   {
     "id": 1,
     "nombre": "Auriculares Gamer RGB",
     "precio": 24999,
-    "descripcion": "Sonido envolvente y luces RGB.",
+    "descripcion": "Sonido envolvente, micrófono HD y luces RGB.",
     "imagen": "https://via.placeholder.com/220"
   },
   {
     "id": 2,
     "nombre": "Mouse Inalámbrico Pro",
     "precio": 18999,
-    "descripcion": "Alta precisión y batería duradera.",
+    "descripcion": "Sensor de alta precisión y batería de larga duración.",
     "imagen": "https://via.placeholder.com/220"
   },
   {
     "id": 3,
     "nombre": "Teclado Mecánico Azul",
     "precio": 34999,
-    "descripcion": "Switches azules y retroiluminación.",
+    "descripcion": "Switches azules, retroiluminación y construcción premium.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 4,
+    "nombre": "Monitor 24'' Full HD",
+    "precio": 89999,
+    "descripcion": "Panel IPS, 75Hz y diseño sin bordes.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 5,
+    "nombre": "Silla Gamer Reclinable",
+    "precio": 129999,
+    "descripcion": "Ergonómica, reclinable y con soporte lumbar.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 6,
+    "nombre": "Webcam 1080p",
+    "precio": 29999,
+    "descripcion": "Full HD, autoenfoque y micrófono integrado.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 7,
+    "nombre": "Micrófono Condensador USB",
+    "precio": 45999,
+    "descripcion": "Ideal para streaming, podcasts y videollamadas.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 8,
+    "nombre": "Parlantes Bluetooth",
+    "precio": 25999,
+    "descripcion": "Sonido potente, batería de 12 horas y resistencia al agua.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 9,
+    "nombre": "Notebook i5 8GB RAM",
+    "precio": 499999,
+    "descripcion": "Rendimiento sólido para trabajo y estudio.",
+    "imagen": "https://via.placeholder.com/220"
+  },
+  {
+    "id": 10,
+    "nombre": "Disco SSD 1TB",
+    "precio": 69999,
+    "descripcion": "Velocidad extrema para mejorar el rendimiento del sistema.",
     "imagen": "https://via.placeholder.com/220"
   }
 ]
