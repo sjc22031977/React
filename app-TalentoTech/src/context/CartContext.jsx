@@ -1,32 +1,84 @@
-// src/context/CartContext.jsx
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useState
+} from "react";
 
 const CartContext = createContext();
 
-export function CartProvider({ children }) {
+export const CartProvider = ({
+  children,
+}) => {
   const [cart, setCart] = useState([]);
 
-  function addToCart(producto) {
-    setCart((prev) => {
-      const existing = prev.find((p) => p.id === producto.id);
-      if (existing) {
-        return prev.map((p) =>
-          p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      const exists = prevCart.find(
+        (item) => item.id === product.id
+      );
+
+      if (exists) {
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? {
+                ...item,
+                quantity:
+                  item.quantity + 1,
+              }
+            : item
         );
       }
-      return [...prev, { ...producto, cantidad: 1 }];
-    });
-  }
 
-  const totalItems = cart.reduce((acc, p) => acc + p.cantidad, 0);
+      return [
+        ...prevCart,
+        {
+          ...product,
+          quantity: 1,
+        },
+      ];
+    });
+  };
+
+  const removeFromCart = (id) => {
+    setCart(
+      cart.filter(
+        (product) => product.id !== id
+      )
+    );
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const totalItems = cart.reduce(
+    (acc, item) =>
+      acc + item.quantity,
+    0
+  );
+
+  const totalPrice = cart.reduce(
+    (acc, item) =>
+      acc +
+      item.precio * item.quantity,
+    0
+  );
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, totalItems }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        totalItems,
+        totalPrice,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
-}
+};
 
-export function useCart() {
-  return useContext(CartContext);
-}
+export const useCart = () =>
+  useContext(CartContext);

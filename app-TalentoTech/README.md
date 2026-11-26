@@ -19,9 +19,8 @@ If you are developing a production application, we recommend using TypeScript wi
 Dependencias Necesarias:
 
 npm install react-router-dom
-
 npm install firebase
-
-npm install bootstrap
-
-npm install react-bootstrap
+npm install react-bootstrap bootstrap
+npm install react-icons
+npm install react-helmet-async
+npm install styled-components

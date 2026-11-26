@@ -1,0 +1,42 @@
+.admin-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.admin-product{
+  background:white;
+  padding:1rem;
+  border-radius:10px;
+  margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+
+.admin-product-image{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.admin-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.admin-buttons button{
+  border:none;
+  padding:8px 15px;
+  border-radius:6px;
+  color:white;
+}
+
+.delete-btn{
+  background:#dc3545;
+}
+
+.edit-btn{
+  background:#fd7e14;
+}

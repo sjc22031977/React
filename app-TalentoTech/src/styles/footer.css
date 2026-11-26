@@ -1,20 +1,21 @@
-footer {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-top: 1px solid #ddd;
-  text-align: center;
+footer{
+  background:#212529;
+  color:white;
+  text-align:center;
+  padding:2rem;
 }
 
-.team {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+.team{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
-.card {
-  border: 1px solid #ccc;
-  padding: 0.8rem;
-  border-radius: 8px;
-  width: 150px;
+.card{
+  background:#343a40;
+  padding:1rem;
+  border-radius:10px;
+  min-width:180px;
 }

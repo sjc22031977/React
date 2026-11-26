@@ -1,32 +1,92 @@
-// src/pages/DetalleProducto.jsx
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useCart } from "../context/CartContext";
-import "../styles/detalle.css";
+import {
+  useEffect,
+  useState,
+} from "react";
+
+import {
+  useParams,
+} from "react-router-dom";
+
+import {
+  getProductById,
+} from "../services/productsService";
+
+import {
+  useCart,
+} from "../context/CartContext";
+
+import Loader from "../components/Loader";
 
 export default function DetalleProducto() {
   const { id } = useParams();
-  const [producto, setProducto] = useState(null);
-  const { addToCart } = useCart();
+
+  const { addToCart } =
+    useCart();
+
+  const [product, setProduct] =
+    useState(null);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
 
   useEffect(() => {
-    fetch("/data/productos.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const found = data.find((p) => p.id === Number(id));
-        setProducto(found);
-      });
+    loadProduct();
   }, [id]);
 
-  if (!producto) return <p>Cargando producto...</p>;
+  const loadProduct =
+    async () => {
+      try {
+        const data =
+          await getProductById(id);
+
+        setProduct(data);
+      } catch (err) {
+        setError(
+          "Error al cargar producto"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+  if (loading) return <Loader />;
+
+  if (error) {
+    return (
+      <p className="error-message">
+        {error}
+      </p>
+    );
+  }
 
   return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <img src={producto.imagen} alt={producto.nombre} style={{ width: "250px" }} />
-      <h2>{producto.nombre}</h2>
-      <p>{producto.descripcion}</p>
-      <p>${producto.precio}</p>
-      <button onClick={() => addToCart(producto)}>Agregar al carrito</button>
+    <div className="product-detail">
+      <img
+        src={product.imagen}
+        alt={product.nombre}
+      />
+
+      <h2>{product.nombre}</h2>
+
+      <p>
+        {product.descripcion}
+      </p>
+
+      <h3>
+        ${product.precio}
+      </h3>
+
+      <button
+        className="btn"
+        onClick={() =>
+          addToCart(product)
+        }
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 }

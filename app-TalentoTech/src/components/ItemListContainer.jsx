@@ -1,31 +1,58 @@
-// src/components/ItemListContainer.jsx
 import { useEffect, useState } from "react";
-import Item from "./Item";
-import { useNavigate } from "react-router-dom";
+
+import { getProducts } from "../services/productsService";
+
+import ProductCard from "./ProductCard";
+import Loader from "./Loader";
 
 export default function ItemListContainer() {
-  const [productos, setProductos] = useState([]);
-  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/data/productos.json")
-      .then((res) => res.json())
-      .then((data) => setProductos(data))
-      .catch((err) => console.error(err));
+    loadProducts();
   }, []);
 
+  const loadProducts = async () => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const data = await getProducts();
+
+      setProducts(data);
+    } catch (error) {
+      console.error(error);
+
+      setError(
+        "No se pudieron cargar los productos."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return (
+      <p className="error-message">
+        {error}
+      </p>
+    );
+  }
+
   return (
-    <div>
-      <h2>Catálogo de productos</h2>
-      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-        {productos.map((p) => (
-          <Item
-            key={p.id}
-            producto={p}
-            onClick={() => navigate(`/producto/${p.id}`)}
-          />
-        ))}
-      </div>
+    <div className="products-grid">
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+        />
+      ))}
     </div>
   );
 }

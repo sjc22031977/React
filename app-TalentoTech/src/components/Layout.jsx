@@ -1,13 +1,19 @@
-// src/components/Layout.jsx
+import { Outlet } from "react-router-dom";
+
 import Header from "./Header";
 import Footer from "./Footer";
+
 import "../styles/layout.css";
 
-export default function Layout({ children }) {
+export default function Layout() {
   return (
     <div className="layout">
       <Header />
-      <main style={{ minHeight: "70vh" }}>{children}</main>
+
+      <main className="main-content">
+        <Outlet />
+      </main>
+
       <Footer />
     </div>
   );

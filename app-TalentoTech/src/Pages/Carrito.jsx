@@ -1,27 +1,71 @@
-// src/pages/Carrito.jsx
-import { useCart } from "../context/CartContext";
-import "../styles/carrito.css";
+import {
+  useCart,
+} from "../context/CartContext";
 
 export default function Carrito() {
-  const { cart } = useCart();
-
-  if (cart.length === 0) {
-    return <h2>Tu carrito está vacío</h2>;
-  }
-
-  const total = cart.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
+  const {
+    cart,
+    removeFromCart,
+    clearCart,
+    totalPrice,
+  } = useCart();
 
   return (
     <div>
-      <h2>Carrito de compras</h2>
-      {cart.map((p) => (
-        <div key={p.id} style={{ borderBottom: "1px solid #ddd", padding: "0.5rem 0" }}>
-          <h4>{p.nombre}</h4>
-          <p>Cantidad: {p.cantidad}</p>
-          <p>Subtotal: ${p.precio * p.cantidad}</p>
-        </div>
-      ))}
-      <h3>Total: ${total}</h3>
+      <h1>
+        Carrito de Compras
+      </h1>
+
+      {cart.length === 0 ? (
+        <p>
+          Tu carrito está vacío
+        </p>
+      ) : (
+        <>
+          {cart.map((item) => (
+            <div
+              className="cart-item"
+              key={item.id}
+            >
+              <h3>
+                {item.nombre}
+              </h3>
+
+              <p>
+                Cantidad:
+                {item.quantity}
+              </p>
+
+              <p>
+                $
+                {item.precio *
+                  item.quantity}
+              </p>
+
+              <button
+                onClick={() =>
+                  removeFromCart(
+                    item.id
+                  )
+                }
+              >
+                Eliminar
+              </button>
+            </div>
+          ))}
+
+          <h2>
+            Total: $
+            {totalPrice}
+          </h2>
+
+          <button
+            onClick={clearCart}
+          >
+            Vaciar carrito
+          </button>
+        </>
+      )}
     </div>
   );
 }

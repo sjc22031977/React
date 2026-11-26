@@ -1,13 +1,13 @@
-.inicio-container {
-  text-align: center;
+.inicio-container{
+  text-align:center;
 }
 
-.inicio-container h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.inicio-container h1{
+  font-size:3rem;
+  margin-bottom:10px;
 }
 
-.inicio-container p {
-  font-size: 1.2rem;
-  color: #555;
+.inicio-container p{
+  color:#666;
+  font-size:1.2rem;
 }
